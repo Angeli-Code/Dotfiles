@@ -1,0 +1,5 @@
+#!/bin/bash
+
+trashedFile=$1
+
+mv $trashedFile ~/Trash
