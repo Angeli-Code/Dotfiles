@@ -8,7 +8,7 @@ A collection configuration files that I use everyday.
 - tmux.conf: Terminal Multiplexor
 - nvim: Neovim Text Editor [Don't use anymore]
 
-## Scripts
+### Scripts
 - trash: Windows "Recycle Bin" equivalent in the terminal
 - incinerateTrash: Windows "Empty Recycle Bin" equivalent in the terminal (I
   could probably just make this an argument for the 'trash' script)
