@@ -2,11 +2,12 @@
 A collection configuration files that I use everyday.
 
 ## Configuration File Contents
-- exrc: Vi Text Editor 
+- exrc: Vi Text Editor
+- vimrc: Vim Text Editor [Daily Driver]
+- nvim: Neovim Text Editor [Don't use anymore]
 - bashrc: Terminal Shell
 - alacritty.toml: Terminal Emulator
 - tmux.conf: Terminal Multiplexor
-- nvim: Neovim Text Editor [Don't use anymore]
 
 ### Scripts
 - trash: Windows "Recycle Bin" equivalent in the terminal
@@ -21,4 +22,5 @@ A collection configuration files that I use everyday.
 
 ### Notes
 - I am putting all my effort into becoming a better programmer so you will find
-  my dotfiles are relatively minimal.
+  my dotfiles are relatively minimal. I once had a whole i3/hyprland configuration and 
+  arch linux config but it was all a distraction.
