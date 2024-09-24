@@ -18,7 +18,7 @@ A collection my personal configuration files
   installation
 
 ### Distribution
-- Fedora: Source... trust me bro.
+- Fedora [Daily Driver]
 
 ### Notes
 - I am putting all my effort into becoming a better programmer so you will find
