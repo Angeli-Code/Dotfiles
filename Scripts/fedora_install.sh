@@ -38,7 +38,7 @@ sudo dnf install -y vim
 cd
 mkdir -p .vim/undo
 
-# Replace default .vimrc with your custom vimrc
+# Create Vim Configuration File
 cat > ~/.vimrc << 'EOF'
 " General Settings
 set guicursor=
@@ -75,7 +75,7 @@ nnoremap <silent> <C-y> :"+y<CR>:call system('xsel -ib', getreg('"'))<CR>
 inoremap <C-p> <C-r>=system('xsel -ob')<CR>
 EOF
 
-# Create .tmux.conf with custom settings
+# Create .tmux.conf Configuration File
 cat > ~/.tmux.conf << 'EOF'
 
 set-option -g mouse off
@@ -88,9 +88,6 @@ set-option -g status-bg darkblue
 set-option -g status-fg white
 EOF
 
-# Reload bash configuration (apply .bashrc changes)
-source ~/.bashrc
-
-# Print success message
+# Print Completion Message
 echo "All requested packages and configurations have been installed!"
 

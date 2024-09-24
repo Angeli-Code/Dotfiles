@@ -2,8 +2,7 @@
 A collection my personal configuration files
 
 ### Configuration File Contents
-- exrc: Vi Text Editor
-- vimrc: Vim Text Editor [Daily Driver]
+- vimrc: Vim Text Editor
 - bashrc: Terminal Shell
 - alacritty.toml: Terminal Emulator
 - tmux.conf: Terminal Multiplexor
@@ -18,7 +17,7 @@ A collection my personal configuration files
   installation
 
 ### Distribution
-- Fedora [Daily Driver]
+- Fedora 
 
 ### Notes
 - I am putting all my effort into becoming a better programmer so you will find
