@@ -23,5 +23,5 @@ A collection my personal configuration files
 ### Notes
 - I am putting all my effort into becoming a better programmer so you will find
   my dotfiles are relatively minimal. I once had a whole i3/hyprland configuration 
-  and arch linux config but it was all a distraction and an entry point for me 
+  and arch linux config but it was all just an entry point for me 
   learning more about linux
