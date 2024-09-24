@@ -9,12 +9,6 @@ set clipboard=unnamedplus
 set t_ti=
 set t_te=
 
-" WildMenu
-set wildmenu
-set wildmode=longest:list,full
-set wildignore=*.h,*.o,*.obj,*.pyc,*.pyo,*.exe,*.dll,*.so,*.swp,*.zip,*.tar.gz,*.tar.bz2
-set wildchar=<Tab>
-
 " Formatting
 set tabstop=8
 set softtabstop=8

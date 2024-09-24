@@ -1,10 +1,9 @@
 # Dotfiles
-A collection configuration files that I use everyday.
+A collection my personal configuration files
 
-## Configuration File Contents
+### Configuration File Contents
 - exrc: Vi Text Editor
 - vimrc: Vim Text Editor [Daily Driver]
-- nvim: Neovim Text Editor [Don't use anymore]
 - bashrc: Terminal Shell
 - alacritty.toml: Terminal Emulator
 - tmux.conf: Terminal Multiplexor
@@ -15,12 +14,14 @@ A collection configuration files that I use everyday.
   could probably just make this an argument for the 'trash' script)
 - darkcompiler: Basic Testing Script for Java, C++ and C. Allows me to run basic
   code in a temporary directory, keeping me from having cluttered directories 
+- fedora-install-script: Automated installation of processes after basic fedora	
+  installation
 
-### Distrobutions
-- Fedora [Daily-Driver]: It just works.
-- Arch [Guilty-Pleasure]: Time consuming.. but fun.
+### Distribution
+- Fedora: Source... trust me bro.
 
 ### Notes
 - I am putting all my effort into becoming a better programmer so you will find
-  my dotfiles are relatively minimal. I once had a whole i3/hyprland configuration and 
-  arch linux config but it was all a distraction.
+  my dotfiles are relatively minimal. I once had a whole i3/hyprland configuration 
+  and arch linux config but it was all a distraction and an entry point for me 
+  learning more about linux
