@@ -2,8 +2,8 @@
 A collection my personal configuration files
 
 ### Configuration File Contents
-- vimrc: Vim Text Editor
-- bashrc: Terminal Shell
+- vimrc: Text Editor
+- bashrc: Shell
 - alacritty.toml: Terminal Emulator
 - tmux.conf: Terminal Multiplexor
 
@@ -11,13 +11,11 @@ A collection my personal configuration files
 - trash: Windows "Recycle Bin" equivalent in the terminal
 - incinerateTrash: Windows "Empty Recycle Bin" equivalent in the terminal (I
   could probably just make this an argument for the 'trash' script)
-- darkcompiler: Basic Testing Script for Java, C++ and C. Allows me to run basic
-  code in a temporary directory, keeping me from having cluttered directories 
 - fedora-install-script: Automated installation of processes after basic fedora	
   installation
 
 ### Distribution
-- Fedora 
+- Fedora
 
 ### Notes
 - I am putting all my effort into becoming a better programmer so you will find
