@@ -25,5 +25,6 @@ fi
 unset rc
 
 PS1='\[\033[0;37m\]\u@fedora\w# '
-
 set -o vi
+
+alias l='ll'

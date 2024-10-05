@@ -1,40 +1,32 @@
-" General Settings
-set nocompatible
+filetype off
+filetype indent off
 set guicursor=
+set mouse=
 set nowrap
 set noswapfile
 set nobackup
 set nowritebackup
-set noundofile
-set incsearch
+set undofile
+set undodir=~/.vim/undo
+set undolevels=2000
 set clipboard=unnamedplus
+
 set t_ti=
 set t_te=
 let loaded_netrwPlugin = 1
 
-" WildMenu
-set wildmenu
-set wildmode=longest:list,full
-set wildignore=*.h,*.o,*.obj,*.pyc,*.pyo,*.exe,*.dll,*.so,*.swp,*.zip,*.tar.gz,*.tar.bz2
-set wildchar=<Tab>
-
-" Formatting
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
+set softtabstop=0
+set shiftwidth=0
+set noexpandtab
 set smartindent
-set scrolloff=8
+set scrolloff=4
 
-" Colors
 syntax off
 colorscheme default
-highlight Normal ctermbg=none
-highlight MatchParen ctermbg=none ctermfg=none
-highlight Search ctermfg=black 
+highlight Search ctermfg=black ctermbg=darkyellow
+highlight MatchParen ctermfg=white ctermbg=black
 highlight NonText ctermfg=white
+highlight Normal ctermfg=white
 
-" Totally Not Copy And Paste
 vnoremap <silent> <C-y> :w !xsel -ib<CR><Esc>
 nnoremap <silent> <C-y> :"+y<CR>:call system('xsel -ib', getreg('"'))<CR>
-nnoremap <silent> <C-p> :r !xsel -ob<CR>
-inoremap <C-p> <C-r>=system('xsel -ob')<CR>
