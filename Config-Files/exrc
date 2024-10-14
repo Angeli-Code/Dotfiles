@@ -1,0 +1,7 @@
+set clipboard=unnamedplus
+set t_ti=
+set t_te=
+set tags=./tags;
+highlight NonText ctermfg=white
+vnoremap <silent> <C-y> :w !xsel -ib<CR><Esc>
+nnoremap <silent> <C-y> :"+y<CR>:call system('xsel -ib', getreg('"'))<CR>

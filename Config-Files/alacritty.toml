@@ -1,13 +1,6 @@
 [window]
-startup_mode = "Fullscreen"
-opacity = 1.0
-
-[colors.primary]
-background = "0x000000"
+startup_mode = "Maximized"
+decorations = "None"
 
 [font]
-normal = { family = "Source Code Pro" }
-bold = { family = "Source Code Pro" }
-italic = { family = "Source Code Pro" }
-bold_italic = { family = "Source Code Pro" }
-size = 21
+size = 16
