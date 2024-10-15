@@ -2,7 +2,7 @@
 A collection my personal configuration files
 
 ### Configuration File Contents
-- exrc: Vim-Minimal
+- vimrc: Vim Text Editor
 - bashrc: Standard Shell
 - alacritty.toml: Terminal Emulator
 - tmux.conf: Terminal Multiplexor

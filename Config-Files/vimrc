@@ -1,0 +1,33 @@
+" General Settings
+syntax on
+colorscheme default
+highlight Search ctermbg=DARKYELLOW ctermfg=BLACK
+highlight MatchParen ctermfg=WHITE ctermbg=BLACK
+set undofile
+set undodir = ~/.vim/undo/
+set undolevels = 2000
+set t_ti=
+set t_te=
+
+" Disabled Settings
+filetype off
+filetype plugin off
+filetype indent off
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+set scrolloff = 0
+set mouse=
+set guicursor=
+set noswapfile
+set nobackup
+set nowrap
+set nosmartindent
+set noautoindent
+
+" Clipboard Settings
+set clipboard=unnamedplus
+vnoremap <silent> <C-y> :w !xsel -ib<CR><Esc>
+nnoremap <silent> <C-y> :"+y<CR>:call system('xsel -ib', getreg('"'))<CR>
+
+" Navigation
+set tags=./tags
