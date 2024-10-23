@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# In order for this to work. 
+# 1. You must download the appimage at this link  [https://obsidian.md/download]
+# 2. chmod +x the appimage
+# 3. move the file to ~/.obsidian
+# 4. chmod this script
+# 5. move this to /usr/local/bin
+#
+# If done correctly. You should be able to open obsididan through dmenu
+
+cd
+./.obsidian > /dev/null 2>&1 &
