@@ -1,0 +1,55 @@
+" Vi Improved Configuation File
+
+" General Settings
+filetype plugin indent on
+set autoindent
+set smartindent
+set hlsearch
+set scrolloff=0
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set expandtab
+set noexpandtab
+set nocompatible
+set nowrap
+set noswapfile
+set nobackup
+
+" Undo-File
+set undofile
+set undodir=~/.vim/undo
+set history=2000
+
+" Graphics
+syntax on
+colorscheme default
+highlight Normal ctermfg=WHITE ctermbg=NONE
+highlight MatchParen ctermfg=DARKYELLOW ctermbg=NONE
+highlight Search ctermfg=BLACK ctermbg=DARKYELLOW
+highlight NonText ctermfg=WHITE
+
+" Whitespace Management
+highlight ExtraWhitespace ctermbg=red ctermbg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWritePre * %s/\s\+$//e
+
+" Clipboard Settings for Wayland
+set clipboard=unnamedplus
+vnoremap <silent> <C-y> :w !wl-copy<CR><Esc>
+nnoremap <silent> <C-y> :"+y<CR>:call system('wl-copy', getreg('"'))<CR>
+
+" Navigation
+set tags=./tags
+set path+=**
+
+" Leader Key and Mappings
+let mapleader = " "
+
+nnoremap <leader>f :find *
+set grepprg=grep\ -r
+nnoremap <leader>g :grep!
+
+" Disabled Plugins and Settings
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1

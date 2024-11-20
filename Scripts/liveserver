@@ -1,0 +1,71 @@
+#!/bin/bash
+# Script for starting a python server in a certain directory
+
+DIR=$(dirname "$1")
+cd "$DIR" || exit
+
+cleanup()
+{
+        echo "Cleaning up..."
+        kill "$pid"
+        exit
+}
+
+kill_servers()
+{
+        echo "Killing existing servers..."
+        pkill -f "python3 -m http.server" #TODO: Success killing servers but
+					  # extra unwanted output
+        echo "All live servers killed."
+        exit 0
+}
+
+start_live_server()
+{
+        local command="python3 -m http.server"
+        local port=8000
+        local attempts=0
+        local max_attempts=10
+
+        echo "Attempting to start live server..."
+
+        while [ "$attempts" -lt "$max_attempts" ]; do
+                $command "$port" >/dev/null 2>&1 &
+                pid=$!
+                sleep 1
+                if ps -p "$pid" > /dev/null; then
+                        echo "Server started on port $port with PID $pid."
+                        break
+                else
+                        echo "Port $port is in use, trying next port..."
+                        port=$((port + 1))
+                        attempts=$((attempts + 1))
+                fi
+        done
+
+        if [ "$attempts" -ge "$max_attempts" ]; then
+                echo "Failed to start server after $max_attempts attempts."
+                exit 1
+        fi
+
+        local local_url="http://localhost:$port"
+        echo "Opening Firefox at $local_url"
+
+        firefox --new-window "$local_url" >/dev/null 2>&1 &
+        echo "Firefox launched at $local_url."
+}
+
+main()
+{
+        trap cleanup SIGINT SIGTERM
+        if [ "$1" == "--kill" ]; then
+                kill_servers
+        else
+                start_live_server
+                echo "Live server started in the background."
+                disown
+        fi
+}
+
+main "$@"
+
