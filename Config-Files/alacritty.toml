@@ -1,12 +1,12 @@
-# Alacritty Configuration File
-
 [window]
 startup_mode = "Maximized"
 decorations = "None"
+opacity = 0.7
 
 [colors.primary]
 background = "0x000000"
 
 [font]
-normal = { family = "Comic Mono", style = "Normal"}
-size = 18.5
+normal = { family = "Comic Mono", style = "Normal" }
+bold = { family = "Comic Mono", style = "Bold" }
+size = 21
