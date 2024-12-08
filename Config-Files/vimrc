@@ -5,7 +5,7 @@ filetype plugin indent on
 set autoindent
 set smartindent
 set hlsearch
-set scrolloff=10
+set scrolloff=0
 set tabstop=8
 set softtabstop=8
 set shiftwidth=8
@@ -15,6 +15,7 @@ set nocompatible
 set nowrap
 set noswapfile
 set nobackup
+set tags+=./tags;,tags
 
 " Undo-File
 set undofile
@@ -25,12 +26,12 @@ set history=2000
 syntax off
 colorscheme default
 highlight Normal ctermfg=WHITE ctermbg=NONE
-highlight MatchParen ctermfg=DARKYELLOW ctermbg=NONE
 highlight Search ctermfg=BLACK ctermbg=DARKYELLOW
+highlight MatchParen ctermfg=DARKYELLOW ctermbg=NONE
 highlight NonText ctermfg=WHITE
 
 " Whitespace Management
-highlight ExtraWhitespace ctermbg=red ctermbg=red
+highlight ExtraWhitespace ctermbg=DARKYELLOW
 match ExtraWhitespace /\s\+$/
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -39,17 +40,9 @@ set clipboard=unnamedplus
 vnoremap <silent> <C-y> :w !wl-copy<CR><Esc>
 nnoremap <silent> <C-y> :"+y<CR>:call system('wl-copy', getreg('"'))<CR>
 
-" Navigation
-set tags=./tags
-set path+=**
+" Better Scrolling
+nnoremap <C-d> <C-d>zz
 
-" Leader Key and Mappings
-let mapleader = " "
-
-nnoremap <leader>f :find *
-set grepprg=grep\ -r
-nnoremap <leader>g :grep!
-
-" Disabled Plugins and Settings
+" Disabled Plugins
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
