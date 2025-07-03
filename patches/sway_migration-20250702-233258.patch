@@ -1,0 +1,329 @@
+diff --git a/README.md b/README.md
+index e7805f7..4d14fe3 100644
+--- a/README.md
++++ b/README.md
+@@ -3,8 +3,7 @@
+ A collection of configurations
+ 
+ ## Contents
+-- alacritty[alacritty.toml]: Terminal Emulator
+-- hyprland[hyprland.conf]: Window Manager
++- sway[config]: Window Manager
+ - bash[bashrc]: Shell
+ - vim[vimrc]: Text Editor
+ - tmux[tmux.conf]: Terminal Multiplexer
+diff --git a/bashrc b/bashrc
+index e2b2cbe..ef50e98 100644
+--- a/bashrc
++++ b/bashrc
+@@ -5,8 +5,10 @@ if [ -f /etc/bashrc ]; then
+     . /etc/bashrc
+ fi
+ 
+-set -o vi
++alias l='ls -l --color=auto'
++alias .='cd ..'
++alias grep='grep -r -n'
+ 
+-alias l='ll'
++PS1='\u@\h:(\W) '
+ 
+-PS1='\u@\h:(\w) '
++unset rc
+diff --git a/hyprland.conf b/hyprland.conf
+deleted file mode 100644
+index 886feb4..0000000
+--- a/hyprland.conf
++++ /dev/null
+@@ -1,213 +0,0 @@
+-################
+-#   Hyprland   #
+-################
+-
+-### MONITORS ###
+-monitor=eDP-1,1920x1200,0x0,1
+-
+-### MY PROGRAMS ###
+-$terminal = alacritty 
+-$fileManager = dolphin
+-$menu = wofi --show drun
+-
+-### AUTOSTART ###
+-exec-once = [workspace 2 silent] $terminal
+-exec-once = [workspace 3 silent] firefox
+-
+-### ENVIRONMENT VARIABLES ###
+-env = XCURSOR_SIZE,24
+-env = HYPRCURSOR_SIZE,24
+-
+-### LOOK AND FEEL ###
+-general {
+-    gaps_in = 0
+-    gaps_out = 0
+-
+-    border_size = 3
+-
+-    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+-    col.inactive_border = rgba(595959aa)
+-
+-    resize_on_border = false
+-
+-    allow_tearing = false
+-
+-    layout = dwindle
+-}
+-
+-decoration {
+-    rounding = 0
+-
+-    active_opacity = 1.0
+-    inactive_opacity = 1.0
+-
+-    shadow {
+-        enabled = false
+-        range = 4
+-        render_power = 3
+-        color = rgba(1a1a1aee)
+-    }
+-
+-    blur {
+-        enabled = false
+-        size = 6
+-        passes = 1
+-
+-        vibrancy = 0.1696
+-    }
+-}
+-
+-animations {
+-    enabled = yes, please :)
+-
+-    bezier = easeOutQuint,0.23,1,0.32,1
+-    bezier = easeInOutCubic,0.65,0.05,0.36,1
+-    bezier = linear,0,0,1,1
+-    bezier = almostLinear,0.5,0.5,0.75,1.0
+-    bezier = quick,0.15,0,0.1,1
+-
+-    animation = global, 1, 10, default
+-    animation = border, 1, 5.39, easeOutQuint
+-    animation = windows, 1, 4.79, easeOutQuint
+-    animation = windowsIn, 1, 4.1, easeOutQuint, popin 87%
+-    animation = windowsOut, 1, 1.49, linear, popin 87%
+-    animation = fadeIn, 1, 1.73, almostLinear
+-    animation = fadeOut, 1, 1.46, almostLinear
+-    animation = fade, 1, 3.03, quick
+-    animation = layers, 1, 3.81, easeOutQuint
+-    animation = layersIn, 1, 4, easeOutQuint, fade
+-    animation = layersOut, 1, 1.5, linear, fade
+-    animation = fadeLayersIn, 1, 1.79, almostLinear
+-    animation = fadeLayersOut, 1, 1.39, almostLinear
+-    animation = workspaces, 1, 1.94, almostLinear, fade
+-    animation = workspacesIn, 1, 1.8, linear, slide 
+-    animation = workspacesOut, 1, 1.8, linear, slide 
+-}
+-
+-dwindle {
+-    pseudotile = true 
+-    preserve_split = true 
+-}
+-
+-master {
+-    new_status = master
+-}
+-
+-misc {
+-    force_default_wallpaper = -1 
+-    disable_hyprland_logo = false 
+-}
+-
+-### INPUT ###
+-input {
+-    kb_layout = us
+-    kb_variant =
+-    kb_model =
+-    kb_options =
+-    kb_rules =
+-
+-    follow_mouse = 1
+-
+-    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+-
+-    touchpad {
+-        natural_scroll = false
+-    }
+-}
+-
+-gestures {
+-    workspace_swipe = false
+-}
+-
+-device {
+-    name = epic-mouse-v1
+-    sensitivity = -0.5
+-}
+-
+-
+-### KEYBINDINGS ###
+-$mainMod = SUPER # Sets "Windows" key as main modifier
+-
+-bind = $mainMod, Q, exec, $terminal
+-bind = $mainMod, C, killactive,
+-bind = $mainMod, M, exit,
+-bind = $mainMod, E, exec, $fileManager
+-bind = $mainMod, V, togglefloating,
+-bind = $mainMod, R, exec, $menu
+-bind = $mainMod, P, pseudo, # dwindle
+-bind = $mainMod, J, togglesplit, # dwindle
+-
+-# Move focus with mainMod + arrow keys
+-bind = $mainMod, left, movefocus, l
+-bind = $mainMod, right, movefocus, r
+-bind = $mainMod, up, movefocus, u
+-bind = $mainMod, down, movefocus, d
+-
+-# Switch workspaces with mainMod + [0-9]
+-bind = $mainMod, 1, workspace, 1
+-bind = $mainMod, 2, workspace, 2
+-bind = $mainMod, 3, workspace, 3
+-bind = $mainMod, 4, workspace, 4
+-bind = $mainMod, 5, workspace, 5
+-bind = $mainMod, 6, workspace, 6
+-bind = $mainMod, 7, workspace, 7
+-bind = $mainMod, 8, workspace, 8
+-bind = $mainMod, 9, workspace, 9
+-bind = $mainMod, 0, workspace, 10
+-
+-# Move active window to a workspace with mainMod + SHIFT + [0-9]
+-bind = $mainMod SHIFT, 1, movetoworkspace, 1
+-bind = $mainMod SHIFT, 2, movetoworkspace, 2
+-bind = $mainMod SHIFT, 3, movetoworkspace, 3
+-bind = $mainMod SHIFT, 4, movetoworkspace, 4
+-bind = $mainMod SHIFT, 5, movetoworkspace, 5
+-bind = $mainMod SHIFT, 6, movetoworkspace, 6
+-bind = $mainMod SHIFT, 7, movetoworkspace, 7
+-bind = $mainMod SHIFT, 8, movetoworkspace, 8
+-bind = $mainMod SHIFT, 9, movetoworkspace, 9
+-bind = $mainMod SHIFT, 0, movetoworkspace, 10
+-
+-# Example special workspace (scratchpad)
+-bind = $mainMod, S, togglespecialworkspace, magic
+-bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+-
+-# Scroll through existing workspaces with mainMod + scroll
+-bind = $mainMod, mouse_down, workspace, e+1
+-bind = $mainMod, mouse_up, workspace, e-1
+-
+-# Move/resize windows with mainMod + LMB/RMB and dragging
+-bindm = $mainMod, mouse:272, movewindow
+-bindm = $mainMod, mouse:273, resizewindow
+-
+-# Laptop multimedia keys for volume and LCD brightness
+-bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+-bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+-bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+-bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+-bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+
+-bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
+-
+-# Requires playerctl
+-bindl = , XF86AudioNext, exec, playerctl next
+-bindl = , XF86AudioPause, exec, playerctl play-pause
+-bindl = , XF86AudioPlay, exec, playerctl play-pause
+-bindl = , XF86AudioPrev, exec, playerctl previous
+-
+-##############################
+-### WINDOWS AND WORKSPACES ###
+-##############################
+-
+-# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
+-# See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
+-
+-# Example windowrule v1
+-# windowrule = float, ^(kitty)$
+-
+-# Example windowrule v2
+-# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
+-
+-# Ignore maximize requests from apps. You'll probably like this.
+-windowrulev2 = suppressevent maximize, class:.*
+-
+-# Fix some dragging issues with XWayland
+-windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+diff --git a/vimrc b/vimrc
+index 252da13..6eebbeb 100644
+--- a/vimrc
++++ b/vimrc
+@@ -3,25 +3,17 @@
+ "
+ 
+ " General
+-filetype plugin on
+-set incsearch
+-set hlsearch
++filetype plugin indent on
+ set path+=**
+ set wildmenu
+ set tags+=./tags;,tags
+-set colorcolumn=80
+-set scrolloff=10
++set scrolloff=0
+ set smartcase
+ set ignorecase
+-set clipboard=unnamedplus
+ 
+-" Backups and Undofile
+-set backupdir=~/.vim/backup/
+-set directory=~/.vim/swaps/
++" Undo
+ set undodir=~/.vim/undo/
+ set undofile
+-set backup
+-set swapfile
+ set history=1000
+ 
+ " Disabled Settings
+@@ -31,29 +23,25 @@ set noexpandtab
+ set noerrorbells
+ set noswapfile
+ set nocompatible
++set noincsearch
++set nohlsearch
++set nobackup
+ 
+-" TODO: Language Specific Indentation Rules
+-
+-" Fuzzy Finding
+-call plug#begin('~/.vim/plugged')
+-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+-Plug 'junegunn/fzf.vim'
+-call plug#end()
++" Language Specific Indentation Rules
++autocmd FileType html,css,javascript,json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
++autocmd FileType python, java, sh tabstop=4 shiftwidth=4 softtabstop=4 expandtab
++autocmd FileType c,cpp,h setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
+ 
+-" Remaps
+-let mapleader = " "
+-nnoremap <leader>ff :FZF<CR>
+-nnoremap <leader>fF :FZF ~<CR>
+-nnoremap <leader>fw :Rg<CR>
+-nnoremap <C-d> <C-d>zz
+-vnoremap <silent> <C-y> :w !xsel -ib<CR><Esc>
+-nnoremap <silent> <C-y> :"+y<CR>:call system('xsel-ib', getreg('"'))<CR>
++" Clipboard
++set clipboard=unnamedplus
++vnoremap <silent> <C-y> :w !wl-copy <CR><Esc>
++nnoremap <silent> <C-y> :"+y<CR>:call system('wl-copy', getreg('"'))<CR>
+ 
+-" Appearance
++" Minimal Appearance
+ syntax off
+ colorscheme default
+ hi Normal ctermfg=WHITE ctermbg=NONE
+-hi Search ctermfg=BLACK ctermbg=WHITE
+-hi ColorColumn ctermbg=BLACK
+-hi LineNr ctermfg=DARKGREY
++hi Search ctermfg=WHITE ctermbg=NONE
++hi MatchParen ctermfg=WHITE ctermbg=NONE
++hi LineNr ctermfg=WHITE
+ hi NonText ctermfg=WHITE
