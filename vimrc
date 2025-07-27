@@ -14,8 +14,8 @@ set smartcase
 set undofile
 set undodir=~/.vim/undo
 set history=1000
-set colorcolumn=80
 set scrolloff=10
+set tags=./tags;,tags;
 
 " Disabled
 set nocompatible
@@ -47,16 +47,11 @@ let g:mapleader = " "
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fF :Files ~/<CR>
 nnoremap <leader>fw :RG <CR>
-nnoremap <leader>sn :syntax off<CR>
-nnoremap <leader>sy :so ~/.vimrc<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 
-" Aesthetics
-syntax on
-colo retrobox
-set background=dark
+" Aesthetics(lackof)
+syntax off
 hi Normal ctermfg=WHITE ctermbg=NONE
-hi Search ctermfg=RED ctermbg=BLACK
-hi ColorColumn ctermbg=DARKRED
-
+hi Search ctermfg=BLACK ctermbg=WHITE
+hi NonText ctermfg=WHITE
