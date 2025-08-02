@@ -21,6 +21,7 @@ set tags=./tags;,tags;
 set nocompatible
 set noswapfile
 set nobackup
+set nowrap
 let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
 
@@ -38,8 +39,8 @@ autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 
 " Plugins
 call plug#begin()
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Remaps
@@ -50,8 +51,8 @@ nnoremap <leader>fw :RG <CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 
-" Aesthetics(lackof)
-syntax off
+" Aesthetics
+syntax on
+colo default
 hi Normal ctermfg=WHITE ctermbg=NONE
-hi Search ctermfg=BLACK ctermbg=WHITE
-hi NonText ctermfg=WHITE
+hi Search ctermfg=BLACK ctermbg=DARKYELLOW

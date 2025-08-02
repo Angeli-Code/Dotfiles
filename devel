@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Import Current Dotfiles
+#
+
+# TODO: Print statements on PASS/FAIL Status
+
+function imp_dots() {
+        cp $HOME/.vimrc vimrc
+        cp $HOME/.tmux.conf tmux.conf
+        cp $HOME/.config/alacritty/alacritty.toml alacritty.toml
+        cp /etc/xdg/waybar/config.jsonc config.jsonc
+        cp $HOME/.bashrc bashrc
+        cp $HOME/.config/hypr/hyprland.conf hyprland.conf
+}
+
+# Export Dotfiles
+function exp_dots() {
+        cp vimrc $HOME/.vimrc
+        # TODO: Handle creating the necessary undo files if not already done
+        cp tmux.conf $HOME/.tmux.conf
+        cp alacritty.toml $HOME/.config/alacritty/alacritty.toml
+        # TODO: Create alacritty directory if not done already
+        cp config.jsonc /etc/xdg/waybar/config.jsonc
+        # TODO: Make sure this waybar is installed
+        cp hyprland.confg $HOME/.config/hypr/hyrpland.conf
+}
+
+
+# Program Entry
+if [[ "$1" == "import" ]]; then
+        imp_dots
+elif [[ "$1" == "export" ]]; then
+        exp_dots
+else
+        echo "Invalid Option"
+        echo "--------------"
+        echo "Options:"
+        echo "1. import"
+        echo "2. export"
+fi

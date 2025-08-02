@@ -1,0 +1,12 @@
+[window]
+startup_mode = "Maximized"
+opacity = 0.85
+
+[colors.primary]
+background = "0x000000"
+
+[font]
+size = 16
+normal = { family = "Comic Code", style = "Normal" }
+bold = { family = "Comic Code", style = "Bold" }
+italic = { family = "Comic Code", style = "Italic" }
